@@ -1,5 +1,27 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+``
+ 
+// write password 
+function writePassword() {
+  var password = "";
+  var allowed = {};
+  if (uppers) password += rando(allowed.uppers = "QWERTYUIOPASDFGHJKLZXCVBNM");
+  if (lowers) password += rando(allowed.lowers = "qwertyuiopasdfghjklzxcvbnm");
+  if (numbers) password += rando(allowed.numbers = "1234567890");
+  if (symbols) password += rando(allowed.symbols = "!@#$%^&*(){}[]=<>/,.");
+
+  for (var i = password.length; i < length; i++) password += rando(rando(allowed).value);
+
+  document.getElementById("password").value = randoSequence(password).join("");
+}
+
+
+// Add event listener to generate button 
+
+generateBtn.addEventListener("click", function () {
+ writePassword();
+});
 
 // popups
 var length = Number(prompt("How long would you like your new password to be?"));
@@ -17,23 +39,3 @@ while (!uppers && !lowers && !numbers && !symbols) {
   numbers = confirm("Would you like to include numbers?");
   symbols = confirm("Would you like to include special characters?");
 }
- 
-// write password 
-function writePassword() {
-  var password = "";
-  var allowed = {};
-  if (uppers) password += rando(allowed.uppers = "QWERTYUIOPASDFGHJKLZXCVBNM");
-  if (lowers) password += rando(allowed.lowers = "qwertyuiopasdfghjklzxcvbnm");
-  if (numbers) password += rando(allowed.numbers = "1234567890");
-  if (symbols) password += rando(allowed.symbols = "!@#$%^&*(){}[]=<>/,.");
-
-  for (var i = password.length; i < length; i++) password += rando(rando(allowed).value);
-
-  document.getElementById("password").value = randoSequence(password).join("");
-}
-
-// Add event listener to generate button 
-
-generateBtn.addEventListener("click", function () {
- writePassword();
-});
